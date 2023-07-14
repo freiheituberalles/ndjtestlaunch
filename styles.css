@@ -203,7 +203,7 @@ a:hover {
 
 .teximgwrapperformflex {
     width: 90vw;
-    padding: 0vw 4vw 0vw 4vw;
+    padding: 0vw 0vw 0vw 4vw;
     display: flex;
     flex-direction: row;
 }
@@ -290,6 +290,10 @@ a:hover {
     margin-top: 0.5rem;
 }
 
+.bodytextymobile {
+    display: none;
+}
+
 .bodytextparagraphright {
     line-height: 1.5rem;
     max-width: 40vw;
@@ -302,11 +306,13 @@ a:hover {
     margin-top: 0;
 }
 
+
 .primaryctalink {
     line-height: 1.5rem;
     max-width: 60vw;
     margin-top: 0.5rem;
     text-decoration: underline;
+    color: #121212;
 }
         /* media query for h1 make it wider 90vw and taller 9vh */
 table {
@@ -366,6 +372,13 @@ th, td {
     border-bottom: 1px solid #ddd;
     padding-bottom: 2rem;
 }
+
+.tablemobile {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 0px;
+}
+
 td {
     align-content: center;
 }
@@ -380,6 +393,29 @@ table img {
     margin-right: 5px;
     align-content: center;
     border-radius: 900px;
+}
+
+.job {
+    line-height: 1.5;
+    padding: 0.5rem 0rem;
+}
+
+.job::after {
+    content: '';
+    position: absolute;
+    left: 50px; /* Adjust as needed, this is the space on the left */
+    right: 50px; /* Adjust as needed, this is the space on the right */
+    bottom: 0;
+    border-bottom: 1px solid #000;
+}
+
+.job-info-title {
+    font-weight: bold;
+}
+
+.job-info-data {
+    border-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 #pagination {
@@ -493,6 +529,9 @@ td > a {
     line-height: 0.5rem;
 }
 
+.joblistmobile {
+    display: none;
+}
 
 video {
     width: 110%;
@@ -529,109 +568,98 @@ video {
 
 /* CSS for table at 768px */
 @media (max-width: 768px) {
-.h1class {
-    width: 95%;
-    line-height: 5vh;
-    word-wrap: break-word;|
-}
-
-.bodytexty {
-    line-height: 1.5rem;
-    max-width: 80vw;
-    margin-top: 0.5rem;
-}
-
-
-.bodytextywelcome {
-    line-height: 1.5rem;
-    max-width: 80vw;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.h1big {
-    width: 75vw;
-    line-height: 7vh;
-    word-wrap: break-word;
-    font-size: 36px;
-    margin: 0;
-}
-
-.h1biggold {
-    width: 75vw;
-    line-height: 7vh;
-    word-wrap: break-word;
-    font-size: 36px;
-    margin: 0;
-    color: ##fff1bd;
-}
-
-.footer p, .footer li {
-    margin: 0.5rem 0;
-    text-align: left;
-    line-height: 1.5;
-}
-
-.footer h2 {
-    text-align: left;
-}
-
-.footer ul li {
-    padding: 0;
-}
-
-.footer {
-    padding: 0;
-}
-
-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 2rem;
-    white-space: nowrap;
-}
-
-td {
-    align-content: center;
-}
-
-th {
-    color: #121212;
-    padding-bottom: 1.5rem;
-}
-
-table img {
-    width: 20px; /* Adjust as needed */
-    height: 20px; /* Adjust as needed */
-    margin-right: 5px;
-    align-content: center;
-    border-radius: 900px;
-}
-.Navbar ul {
-    display: none;
-}
-
-@media only screen and (max-width: 425px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(1, 24rem);
-        gap: 1.25rem;
-        /* justify-items: center; */
-        align-items: start;
+    .h1class {
+        width: 95%;
+        line-height: 5vh;
+        word-wrap: break-word;|
+    }
+    video {
         width: 100%;
-        overflow: hidden;
-        padding-bottom: 4.5%;
-        justify-content: center;
+        height: 110%;
+        object-fit: cover;
+        filter: brightness(0.75);
+        filter: saturate(1.25) brightness(0.75);
+    }
+
+    .bodytexty {
+        line-height: 1.5rem;
+        max-width: 80vw;
+        margin-top: 0.5rem;
+    }
+
+    .herotext {
+        font-size: 200%;
+    }
+
+    .bodytextywelcome {
+        line-height: 1.5rem;
+        max-width: 80vw;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .h1big {
+        width: 75vw;
+        line-height: 7vh;
+        word-wrap: break-word;
+        font-size: 36px;
+        margin: 0;
+    }
+
+    .h1biggold {
+        width: 75vw;
+        line-height: 7vh;
+        word-wrap: break-word;
+        font-size: 36px;
+        margin: 0;
+        color: ##fff1bd;
+    }
+
+    .footer p, .footer li {
+        margin: 0.5rem 0;
+        text-align: left;
+        line-height: 1.5;
+    }
+
+    .footer h2 {
+        text-align: left;
+    }
+
+    .footer ul li {
+        padding: 0;
+    }
+
+    .footer {
+        padding: 0;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    td {
         align-content: center;
     }
+
+    th {
+        color: #121212;
+        padding-bottom: 1.5rem;
+    }
+
+    table img {
+        width: 20px; /* Adjust as needed */
+        height: 20px; /* Adjust as needed */
+        margin-right: 5px;
+        align-content: center;
+        border-radius: 900px;
+    }
+    .Navbar ul {
+        display: none;
+    }
 }
+
 
 @media only screen and (max-width: 320px) {
     .grid-container {
@@ -648,11 +676,20 @@ table img {
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .imgrighttextleft {
         display: flex;
         flex-direction: column;
         flex-direction: column-reverse;
+    }
+    .bodytextymobile {
+        display: block;
+    }
+    #pagination {
+        display: none;
+    }
+    .webbreak {
+        display: none;
     }
     .headingwithsubtexttop-sectiontitle {
         margin-top: 1rem;
@@ -676,6 +713,10 @@ table img {
     .divider-container {
         padding: 0 1rem;
     }
+    .divider-short {
+        width: 75vw;
+        margin: 0;
+    }
     .teximgwrapperformflex {
         width: 90vw;
         padding: 0vw 4vw 0vw 4vw;
@@ -693,13 +734,20 @@ table img {
         border: 1px solid #ddd;
         border-radius: 4px;
     }
-}
-
-@media (max-width: 768px) {
     .Navbar ul {
         display: none;
     }
-
+    #myTable {
+        display: none;
+    }
+    .joblistmobile {
+        display: block;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+        padding-bottom: 2rem;
+    }
     .grid-container {
         display: grid;
         grid-template-columns: repeat(1, 20.813rem);
@@ -737,6 +785,67 @@ table img {
     }
 
     .Navbar .signupbtn {
-        margin-top: 1rem;
+        /* margin-top: 1rem; */
+    }
+    
+    ul > .signupbtn {
+        border-radius: 8px;
+        /* padding-top: 0.5rem; */
+        /* padding-left: 0.75rem; */
+        /* padding-right: 0.75rem; */
+        color: #0F111A;
+        padding-bottom: 0.5rem;
+    }
+    ul > .signupbtn {
+        border-radius: 8px;
+        padding-top: 0rem;
+        padding-left: 0rem;
+        padding-right: 0;
+        color: #0F111A;
+        padding-bottom: 0.5rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 320px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 18rem);
+        gap: 1.25rem;
+        /* justify-items: center; */
+        align-items: start;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 4.5%;
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+@media only screen and (min-width: 424px max-width: 425px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 24rem);
+        gap: 2.5rem;
+        /* justify-items: center; */
+        align-items: start;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 4.5%;
+        justify-content: center;
+        align-content: center;\
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .form-group input, .form-group textarea {
+        width: 45vw;
+        padding: 0.5rem;
+        font-family: 'Inconsolata', monospace;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        align-self: start;
+        align-content: start;
     }
 }
