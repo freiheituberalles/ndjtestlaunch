@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transparent & No-nonsense Tech Jobs For You | next.Jobs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon20x20.png">
 </head>
@@ -46,6 +48,8 @@
         <div class="textwrapper">
             <h1 class="headinguniversal">Job Listings @ next.Jobs</h1>
             <p class="bodytexty">Here's a fresh batch of remote tech jobs, all neatly compiled with help from our trusty partners. Updated on 17th July 2023.</p>
+            <p class="bodytextymobile">Note: We are currently working to make all listings available on Mobile and Tablet. Apologies for the inconveniences.🙏🏻</p>
+        <div id="joblistmobile" class="joblistmobile"></div>
             <br>
             <table id="myTable">
                 <thead>
@@ -61,8 +65,8 @@
                 <tbody id="tableBody"></tbody>
             </table>
             <div id="pagination"></div>
-            <br>
-            <br>
+            <br class="webbreak">
+            <br class="webbreak">
             <p class="bodytextymobile">Visit our website on your Desktop/Laptop to see 20+ more listings.</p>
         </div>
         <div class="divider-container">
@@ -79,7 +83,7 @@
         <section class="mainbody-column">
             <div class="grid-container">
                 <div class="grid-item">
-                    <img src="/nextalent.png" class="gridimage">
+                    <img src="/nextalent.png" class="gridimage" alt="abstract image with the word Talent in white overlaying it">
                     <div class="text-wrapper">
                         <p class="subtexttop">For Recruiters</p>
                         <h1 class="headingwithsubtexttop">next.Talent</h1>
@@ -88,7 +92,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="/nextpen.png" class="gridimage">
+                    <img src="/nextpen.png" class="gridimage" alt="abstract image with the word Pen in white overlaying it">
                     <div class="text-wrapper">
                         <p class="subtexttop">For Jobseekers</p>
                         <h1 class="headingwithsubtexttop">next.Pen</h1>
@@ -97,7 +101,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="/nextcoach.png" class="gridimage">
+                    <img src="/nextcoach.png" class="gridimage" alt="abstract image with the word Coach in white overlaying it">
                     <div class="text-wrapper">
                         <p class="subtexttop">For Jobseekers</p>
                         <h1 class="headingwithsubtexttop">next.Coach</h1>
@@ -120,7 +124,7 @@
                     <a class="primaryctalink">Learn more about us ↗</a>
                 </div>
                 <div class="teximgwrapper-flex">
-                    <img src="https://images.pexels.com/photos/3811593/pexels-photo-3811593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rightgridimage">
+                    <img src="https://images.pexels.com/photos/3811593/pexels-photo-3811593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rightgridimage" alt="Photo of Samantha Corner, the female CEO of caucasian descent posing for Next.Jobs">
                     <br>
                     <br>
                 </div>
@@ -277,6 +281,47 @@
             if (firstPageLink) {
                 firstPageLink.classList.add('active');
             }
+        });
+        const jobs = [
+            ['<a href="#" class="primaryctalink">PaaS.id ↗<a>', 'Sr. Front-end Engineer', 'Start from $250,000/yr', 'Full-time (Remote)', '1 month ago', '<a href="#" class="primaryctalink">Apply Now</a>'],
+            ['<a href="#" class="primaryctalink">lonaLisa ↗<a>', 'Product Manager', '$140,000-$160,000/yr', 'Full-time (Remote)', '1 month ago', '<a href="#" class="primaryctalink">Apply Now</a>'],
+            ['<a href="#" class="primaryctalink">PaaS.id ↗<a>', 'Sr. Front-end Engineer', 'Start from $250,000/yr', 'Full-time (Remote)', '1 month ago', '<a href="#" class="primaryctalink">Apply Now</a>'],
+            ['<a href="#" class="primaryctalink">lonaLisa ↗<a>', 'Product Manager', '$140,000-$160,000/yr', 'Full-time (Remote)', '1 month ago', '<a href="#" class="primaryctalink">Apply Now</a>'],
+            ['<a href="#" class="primaryctalink">lonaLisa ↗<a>', 'Sr. UX Engineer', '$115,000-$120,000/yr', 'Full-time (Remote)', '1 month ago', '<a href="#" class="primaryctalink">Apply Now</a>'],
+            ['<a href="#" class="primaryctalink">FlowerY ↗<a>', 'UX Designer', '$85,000-$100,000/yr', 'Full-time (Remote)', '1 month ago', '<a href="#" class="primaryctalink">Apply Now</a>'],
+           //...Rest of your jobs data
+            ];
+
+        const joblist = document.querySelector('#joblistmobile');
+
+        jobs.forEach(job => {
+            let jobDiv = document.createElement('div');
+            jobDiv.classList.add('job');
+
+            let infoTitles = ['Company', 'Position', 'Salary', 'Type', 'Posted', 'Apply'];
+            
+            job.forEach((info, index) => {
+                let jobInfo = document.createElement('div');
+                jobInfo.classList.add('job-info');
+
+                let jobInfoTitle = document.createElement('div');
+                jobInfoTitle.classList.add('job-info-title');
+                jobInfoTitle.textContent = infoTitles[index];
+                jobInfo.appendChild(jobInfoTitle);
+                
+                let jobInfoData = document.createElement('div');
+                jobInfoData.classList.add('job-info-data');
+                jobInfoData.innerHTML = info;
+                jobInfo.appendChild(jobInfoData);
+
+                jobDiv.appendChild(jobInfo);
+            });
+
+            joblist.appendChild(jobDiv);
+
+            let hr = document.createElement('hr');
+            hr.classList.add('divider-short');
+            jobDiv.appendChild(hr);
         });
     </script>
 </body>
